@@ -26,7 +26,13 @@ const Index = () => {
 
 	const renderDetail = () => (
 		<View>
-			<User user={userSelected} onPress={() => {}} />
+			<User
+				user={userSelected}
+				onPress={() => {
+					setUserSelected(null);
+					setUserInfoVisible(false);
+				}}
+			/>
 		</View>
 	);
 
@@ -59,6 +65,7 @@ const Index = () => {
 					{userSelected ? userSelected.name : 'GoNative'}
 				</HeaderText>
 			</Header>
+
 			{userInfoVisible ? renderDetail() : renderList()}
 		</Container>
 	);

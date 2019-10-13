@@ -14,9 +14,9 @@ import {
 	Likes,
 } from './styles';
 
-const User = ({ user }) => {
+const User = ({ user, onPress }) => {
 	return (
-		<Container onPress={null}>
+		<Container onPress={onPress}>
 			<UserContainer>
 				<Thumbnail source={{ uri: user.thumbnail }} />
 
