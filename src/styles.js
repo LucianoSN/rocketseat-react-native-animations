@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Platform, StyleSheet } from 'react-native';
+import { Platform, Animated } from 'react-native';
 
 export const Container = styled.View`
 	flex: 1;
@@ -9,12 +9,11 @@ export const Scroll = styled.ScrollView``;
 
 export const View = styled.View``;
 
-export const Header = styled.View`
+export const Header = styled(Animated.View)`
 	padding-top: ${Platform.OS === 'ios' ? 40 : 20};
 	padding-left: 15px;
 	padding-right: 15px;
 	background-color: #2e93e5;
-	height: 200px;
 `;
 
 export const HeaderImage = styled.Image`

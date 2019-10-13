@@ -1,23 +1,21 @@
 import React, { useState } from 'react';
-import { Dimensions, StatusBar } from 'react-native';
+import { Dimensions, StatusBar, Animated } from 'react-native';
 
 import User from './components/User';
 import { users } from './data/users';
 
-import {
-	Container,
-	Scroll,
-	View,
-	Header,
-	HeaderImage,
-	HeaderText,
-} from './styles';
+import { Container, Scroll, Header, HeaderImage, HeaderText } from './styles';
 
 const { width } = Dimensions.get('window');
 
 const Index = () => {
 	const [userSelected, setUserSelected] = useState(null);
 	const [userInfoVisible, setUserInfoVisible] = useState(false);
+
+	let yOffset = new Animated.Value(0);
+	const onScroll = Animated.event([
+		{ nativeEvent: { contentOffset: { y: yOffset } } },
+	]);
 
 	const selectUser = user => {
 		setUserSelected(user);
@@ -36,7 +34,7 @@ const Index = () => {
 
 	const renderList = () => (
 		<Container>
-			<Scroll>
+			<Scroll onScroll={onScroll} scrollEventThrottle={16}>
 				{users.map(user => (
 					<User
 						key={user.id}
@@ -52,7 +50,16 @@ const Index = () => {
 		<Container>
 			<StatusBar barStyle="light-content" />
 
-			<Header>
+			<Header
+				styles={[
+					{
+						height: yOffset.interpolate({
+							inputRange: [0, 140],
+							outputRange: [200, 70],
+						}),
+					},
+				]}
+			>
 				<HeaderImage
 					source={
 						userSelected ? { uri: userSelected.thumbnail } : null
