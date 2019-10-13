@@ -15,7 +15,7 @@ export const Thumbnail = styled.Image`
 
 export const InfoContainer = styled.View`
 	flex-direction: row;
-	background-color: #57bcbc;
+	background-color: ${props => props.bgColor || '#57bcbc'};
 	align-items: center;
 	padding: 15px 8px;
 `;

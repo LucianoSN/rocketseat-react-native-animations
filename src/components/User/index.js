@@ -14,20 +14,20 @@ import {
 	Likes,
 } from './styles';
 
-const User = () => {
+const User = ({ user }) => {
 	return (
-		<Container>
+		<Container onPress={null}>
 			<UserContainer>
-				<Thumbnail />
+				<Thumbnail source={{ uri: user.thumbnail }} />
 
-				<InfoContainer>
+				<InfoContainer bgColor={user.color}>
 					<BioContainer>
-						<Name>John</Name>
-						<Description>The king</Description>
+						<Name>{user.name.toUpperCase()}</Name>
+						<Description>{user.description}</Description>
 					</BioContainer>
 					<LikesContainer>
 						<Icon name="heart" size={12} color="#FFF" />
-						<Likes>5</Likes>
+						<Likes>{user.likes}</Likes>
 					</LikesContainer>
 				</InfoContainer>
 			</UserContainer>
