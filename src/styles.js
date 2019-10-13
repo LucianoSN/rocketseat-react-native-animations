@@ -1,10 +1,32 @@
 import styled from 'styled-components';
+import { Platform, StyleSheet } from 'react-native';
 
 export const Container = styled.View`
 	flex: 1;
-	justify-content: center;
-	align-items: center;
-	background-color: #fff;
 `;
 
-export const Text = styled.Text``;
+export const Scroll = styled.ScrollView``;
+
+export const View = styled.View``;
+
+export const Header = styled.View`
+	padding-top: ${Platform.OS === 'ios' ? 40 : 20};
+	padding-left: 15px;
+	padding-right: 15px;
+	background-color: #2e93e5;
+	height: 200px;
+`;
+
+export const HeaderImage = styled.Image`
+	...StyleSheet.absoluteFillObject;
+`;
+
+export const HeaderText = styled.Text`
+	font-size: 24px;
+	font-weight: 900;
+	color: #fff;
+	background-color: transparent;
+	position: absolute;
+	left: 15px;
+	bottom: 20px;
+`;
