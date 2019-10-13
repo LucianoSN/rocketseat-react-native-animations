@@ -25,15 +25,13 @@ const Index = () => {
 	};
 
 	const renderDetail = () => (
-		<View>
-			<User
-				user={userSelected}
-				onPress={() => {
-					setUserSelected(null);
-					setUserInfoVisible(false);
-				}}
-			/>
-		</View>
+		<User
+			user={userSelected}
+			onPress={() => {
+				setUserSelected(null);
+				setUserInfoVisible(false);
+			}}
+		/>
 	);
 
 	const renderList = () => (
