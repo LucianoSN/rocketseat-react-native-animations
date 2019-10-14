@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Index from './src';
+import Header from './src/pages/Header';
 
 export default function App() {
-	return <Index />;
+	return <Header />;
 }
